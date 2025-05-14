@@ -11,17 +11,55 @@ services:
     volumes:
       - ../helloworld:/app/helloworld
 
-  practice-api:
+  api-practice:
     build:
       context: ..
       dockerfile: docker/Dockerfile
       args:
-        APP_DIR: practice-api
+        APP_DIR: api-practice
     command: ./app
     volumes:
-      - ../practice-api:/app/practice-api
+      - ../api-practice:/app/api-practice
     ports:
       - "8080:8080"
+
+  concurrency-practice:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        APP_DIR: concurrency-practice
+    command: ./app
+    volumes:
+      - ../concurrency-practice:/app/concurrency-practice
+    ports:
+      - "8081:8081"
+
+  array:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        APP_DIR: array
+    command: ./app
+    volumes:
+      - ../array:/app/array
+    ports:
+      - "8082:8082"
+
+  crud-files:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        APP_DIR: crud-files
+    command: ./app
+    volumes:
+      - ../crud-files:/app/crud-files
+      - ../data:/app/data
+    ports:
+      - "8083:8083"
+
     # 他のサービスを追加する場合は以下のように追加
     # other-app:
     #   build:
