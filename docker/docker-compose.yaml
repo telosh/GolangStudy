@@ -10,6 +10,18 @@ services:
     command: ./app
     volumes:
       - ../helloworld:/app/helloworld
+
+  practice-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        APP_DIR: practice-api
+    command: ./app
+    volumes:
+      - ../practice-api:/app/practice-api
+    ports:
+      - "8080:8080"
     # 他のサービスを追加する場合は以下のように追加
     # other-app:
     #   build:
