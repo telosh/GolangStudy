@@ -60,6 +60,14 @@ services:
     ports:
       - "8083:8083"
 
+  aa:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        APP_DIR: aa
+    command: ./app
+
     # 他のサービスを追加する場合は以下のように追加
     # other-app:
     #   build:
