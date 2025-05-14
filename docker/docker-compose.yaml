@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  helloworld:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        APP_DIR: helloworld
+    command: ./app
+    volumes:
+      - ../helloworld:/app/helloworld
+    # 他のサービスを追加する場合は以下のように追加
+    # other-app:
+    #   build:
+    #     context: ..
+    #     dockerfile: docker/Dockerfile
+    #     args:
+    #       APP_DIR: other-app
+    #   command: ./app
+    #   volumes:
+    #     - ../other-app:/app/other-app
